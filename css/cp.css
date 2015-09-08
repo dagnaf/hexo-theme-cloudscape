@@ -1,0 +1,51 @@
+#svg-container {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  height: calc(100% - 120px);
+}
+@media screen and (max-width: 479px) {
+  #svg-container {
+    height: calc(100% - 150px);
+  }
+}
+svg.gshape,
+div.gtext {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -384px;
+  margin-top: -250px;
+  display: block;
+}
+svg.gshape a circle {
+  fill: #aad0e3;
+  fill-opacity: 0.4;
+  stroke: #cae4f0;
+  stroke-width: 1px;
+}
+svg.gshape a circle.no-stroke {
+  stroke: none;
+}
+svg.gshape a circle.ignore {
+  fill: none;
+}
+svg.gshape a circle.hl {
+  fill: #8ec1da;
+}
+svg.gshape a circle.hl-cat {
+  stroke: #8ec1da;
+}
+div.gtext a {
+  position: absolute;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  line-height: 0.7em;
+  text-shadow: 1px 1px 0 #cae4f0, 1px -1px 0 #cae4f0, -1px 1px 0 #cae4f0, -1px -1px 0 #cae4f0;
+}
+div.gtext a,
+div.gtext a .tag-count {
+  white-space: nowrap;
+  font-size: 70%;
+}
