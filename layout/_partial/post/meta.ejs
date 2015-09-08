@@ -2,7 +2,7 @@
   <ul class="header-nav-list">
     <li class="header-nav-list-item">
       <i class="fa fa-calendar"></i>
-      <a class="header-link disqus-comment-count" data-disqus-identifier="<%- url_for(post.path) %>" href="<%- url_for(post.path) %>">
+      <a class="header-link" href="<%- url_for(post.path) %>">
         <time datetime="<%= date_xml(post.date) %>" itemprop="datePublished"><%= date(post.date, date_format) %></time>
       </a>
     </li>
@@ -10,7 +10,7 @@
       <li class="header-nav-list-item">
         <i class="fa fa-comments"></i>
         <% if (theme.disqus_shortname) { %>
-          <a class="header-link" href="<%= url_for(post.path) %>#disqus_thread"><%= __('comments') %></a>
+          <a class="header-link disqus-comment-count" data-disqus-identifier="<%- url_for(post.path) %>" href="<%= url_for(post.path) %>#disqus_thread"><%= __('comments') %></a>
         <% } else if (theme.duoshuo_shortname) { %>
           <a href="<%= url_for(post.path) %>#comments" class="post-comments-count ds-thread-count" data-thread-key="<%= post.path %>"><%= __('comments') %></a>
         <% } %>

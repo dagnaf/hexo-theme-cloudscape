@@ -18,11 +18,6 @@ Most parts of `_config.yml`s extends from Hexo's or hexo-theme-landscape's. You 
 # available site language: en which is default or zh-cn
 language: zh-cn
 
-# skip render js files in asset folders
-#   note only takes effect on posts not in `_post` folder
-skip_render:
-- "**/*.js"
-
 # enable the theme with correct name
 theme: cloudscape
 ```
@@ -42,9 +37,11 @@ duoshuo_shortname:
 abstract: abstract of posts will be displayed in the archives page.
 ```
 
-## Plugin
+## Plugins
 
-Asset_js tag is used to include js files located in your post_asset_folder. It appends `<script>` tags to `<body>` when the page has been loaded.
+### asset_js tag
+
+Include js files located in your post_asset_folder. It appends `<script>` tags to `<body>` when the page has been loaded.
 
 ```
 {% asset_js slug %} =>
@@ -53,3 +50,7 @@ Asset_js tag is used to include js files located in your post_asset_folder. It a
 ```
 <a class="hidden-js-link" href="relative/path/to/slug.js"></a>
 ```
+
+### skip_render filter
+
+Skip js files in _posts and post_asset_folder. As renderer cannot be unregistered, the filter delete this.extend.renderer.store[Sync].js before renderering all js files (which is a plane renderer). If js files need to be renderered properly, please remove this plugin from scripts folder.
