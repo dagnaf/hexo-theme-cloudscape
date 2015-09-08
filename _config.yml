@@ -1,0 +1,21 @@
+# Header
+menu:
+  archives: archives
+  categories: categories
+  tags: tags
+# rss: /atom.xml
+
+# Content
+excerpt_link: true
+fancybox: true
+
+# Miscellaneous
+google_analytics:
+favicon:
+twitter:
+google_plus:
+fb_admins:
+fb_app_id:
+
+# Comments
+duoshuo_shortname:

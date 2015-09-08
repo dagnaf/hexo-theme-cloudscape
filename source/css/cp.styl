@@ -1,0 +1,49 @@
+@import "_variables"
+
+#svg-container
+  position: absolute
+  width: 100%
+  overflow: hidden
+  height: calc(100% - 120px)
+  @media mq-mobile
+    height: calc(100% - 150px)
+
+svg.gshape,
+div.gtext
+  position: absolute
+  left: 50%
+  top: 50%
+  margin-left: -384px
+  margin-top: -250px
+  display: block
+
+svg.gshape a circle
+  fill: color-image-bg-middle//transparent//color-background
+  fill-opacity: .4
+  stroke: color-background
+  stroke-width: 1px
+  &.no-stroke
+    stroke: none
+  &.ignore
+    fill: none
+  &.hl
+    fill: color-image-background
+  &.hl-cat
+    stroke: color-image-background
+
+div.gtext a
+  position: absolute
+  display: block
+  text-decoration: none
+  text-align: center
+  line-height: .7em
+  text-shadow:
+     1px  1px 0 color-background,
+     1px -1px 0 color-background,
+    -1px  1px 0 color-background,
+    -1px -1px 0 color-background
+  &,
+  & .tag-count
+    white-space: nowrap
+    font-size: 70%
+

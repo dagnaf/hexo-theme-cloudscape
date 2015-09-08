@@ -1,0 +1,13 @@
+<% if (post.categories && post.categories.length){ %>
+  <div class="article-category <%= post.tags && post.tags.length ? '' : 'u-max-full-width' %>">
+    <i class="fa fa-folder"></i>
+    <div class="article-category-list">
+      <%- list_categories(post.categories, {
+        show_count: true,
+        class: 'article-category',
+        style: 'none',
+        separator: '/'
+      }) %>
+    </div>
+  </div>
+<% } %>

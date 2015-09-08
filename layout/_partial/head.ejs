@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <%
+  var title;
+  // i18n
+  if (page.title) title = __('header.'+page.title.toLowerCase());
+  if (title && title.indexOf('header.') >= 0) title = page.title;
+  // submenu exists
+  if (is_archive()){
+    title = __('header.archives');
+
+    if (is_month()){
+      title += ': ' + page.year + '/' + _.padLeft(page.month,2,'0');
+    } else if (is_year()){
+      title += ': ' + page.year;
+    }
+  } else if (is_category()){
+    // path format: categories/some/nested/category/page/2/index.html
+    title = __('header.categories')+': ' + page.path
+      .replace('categories/','')
+      .replace(/((\/page\/\d+)*\/index\.html)$/, '');
+  } else if (is_tag()){
+    title = __('header.tags')+': ' + page.tag;
+  }
+  %>
+  <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
+  <% if (theme.rss){ %>
+    <link rel="alternative" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
+  <% } %>
+  <% if (theme.favicon){ %>
+    <link rel="icon" href="<%- theme.favicon %>">
+  <% } %>
+  <%- css('css/style') %>
+</head>

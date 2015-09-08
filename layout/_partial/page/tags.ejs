@@ -1,0 +1,18 @@
+<%
+var tags = site.tags
+    .filter(function (tag) { return tag.length })
+    .map(function (tag) { return {
+      name: tag.name,
+      length: tag.length,
+      path: tag.name
+    }});
+var root = { children: tags };
+%>
+
+<script type="text/javascript">
+var root = <%- JSON.stringify(root) %>;
+circlePacking()
+  .container("#svg-container")
+  .highlight("hl-cat")
+  .pack(root);
+</script>

@@ -1,0 +1,24 @@
+header:
+  archives: Archives
+  categories: Categories
+  tags: Tags
+
+nav:
+  page:
+    prev: Prev
+    next: Next
+  post:
+    prev: Prev
+    next: Next
+
+footer:
+  powered: "Powered by %s"
+  bg: "Background from "
+
+read_more: "Read More"
+
+date_month: "3"
+
+comments: comments
+
+no_title: "No title"

@@ -1,0 +1,272 @@
+$mq-margin
+  margin-left: block-margin
+  margin-right: block-margin
+  @media mq-mobile
+    margin-left: mobile-margin
+    margin-right: mobile-margin
+
+$mq-padding
+  padding-left: abs(block-margin)
+  padding-right: abs(block-margin)
+  @media mq-mobile
+    padding-left: abs(mobile-margin)
+    padding-right: abs(mobile-margin)
+
+$zigzag-grid
+  content: ""
+  position: absolute
+  border-width: 2px
+  border-style: dashed
+  border-color: color-background
+  width: 100%
+
+#main article.article,
+#comments,
+#cat-tag
+  background-color: color-page
+  border-bottom: 1px solid color-background
+  margin-bottom: 2rem
+
+#main article.article
+  overflow: hidden
+  .header-nav
+    li
+      padding-left: 0
+      padding-right: 10px
+    @media mq-mobile
+      text-align: left
+
+#comments,
+#cat-tag
+  overflow-x: hidden
+  padding-top: 10px
+  padding-bottom: 10px
+  @extend $mq-padding
+
+#comments
+  min-height: 100px
+
+#main .page-sheet
+  position: relative
+  &:not(:last-child):after
+    @extend $zigzag-grid
+    bottom: 0
+    left: 0
+  &:not(:first-child):before
+    @extend $zigzag-grid
+    top: -1px
+    left: 4px
+
+.article header
+  padding-top: 1.5rem
+  text-align: center
+  @media mq-mobile
+    text-align: left
+  @extend $mq-padding
+
+.article-title
+  color: color-default
+  a&:hover
+    color: color-link
+    text-decoration: none
+
+.article-entry
+  @extend $mq-padding
+  .image-container
+    @extend $mq-margin
+    &:last-child
+      margin-bottom: 0
+      & span.caption
+        padding-bottom: 1.5rem
+  span.caption
+    color: color-grey
+    display: block
+    font-size: 0.9em
+    margin-top: 0.5em
+    position: relative
+    text-align: center
+  img, video
+    display: block
+    max-width: 100%
+    height: auto
+    margin: auto
+  .gist
+    @extend $mq-margin
+    &:last-child .gist-file
+      margin-bottom: 0
+  .MathJax_Display,
+  .MathJax_SVG_Display,
+  .MathJax_CHTML_Display
+    width: initial
+    overflow: auto
+    overflow-y: hidden
+    @extend $mq-margin
+  .MJXc-display
+    margin-top: 0
+    margin-bottom: 1.5rem
+  figure.highlight
+    @extend $mq-margin
+    background-color: color-background
+    figcaption
+      background-color: color-page
+      @extend $mq-padding
+      a
+        float: right
+        text-decoration: none
+    table
+      display: block
+      max-width: 100%
+      overflow: auto
+      @extend $mq-padding
+      .gutter
+        color: rgba(0,0,0,0.3)
+        & span:hover
+          color: rgba(0,0,0,0.6)
+      td
+        border: 0
+        padding: 5px 15px 5px 0
+        pre
+          font-size: 1.3rem
+          margin: 0
+          padding: 0
+  .elem-container
+    @extend $mq-margin
+    margin-bottom: 2.5rem
+    overflow: auto
+    & > *
+      margin-bottom: 0
+    table
+      width: 100%
+      tbody tr:hover
+        background-color: color-background
+    &:last-child
+      margin-bottom: 0
+  blockquote
+    @extend $mq-margin
+    font-family: font-serif
+    font-size: 1.4em
+    text-align: center
+    background-color: color-background
+    footer
+      font-size: font-size
+      font-family: font-sans
+      cite
+        &:before
+          content: "—"
+          padding: 0 0.5em
+    &.pullquote
+      text-align: left
+      max-width: 45%
+      margin-top: 0
+      margin-bottom: 0
+      &.left
+        margin-right: 1em
+      &.right
+        margin-left: 1em
+    p
+      margin-bottom: 0
+      padding: 0 abs(block-margin - 1px)
+      @media mq-mobile
+        padding: 0 abs(mobile-margin - 1px)
+  .video-container
+    @extend $mq-margin
+    margin-bottom: 2.5rem
+    position: relative
+    padding-top: (9 / 16 * 100)% // 16:9 ratio
+    height: 0
+    overflow: hidden
+    &:last-child
+      margin-bottom: 0
+    iframe, object, embed
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      margin-top: 0
+  p.article-more-link
+    margin-top: -27px
+    text-align: center
+    a
+      padding: 1px 10px
+      background-color: color-background
+      border-radius: 10px;
+      &:hover
+        text-decoration: none
+        color: color-link-lighten
+
+.article-gallery-img
+  display: none
+  &:first-child
+    display: block
+  img
+    width: 100%
+  article.article:first-child & img
+    opacity:0.75
+
+.article-category
+  max-width: 25%
+  margin-right: 3.5%
+
+.article-tag
+  max-width: 70%
+
+.article-category,
+.article-tag
+  display: inline-block
+  position: relative
+  vertical-align: top
+  @media mq-mobile
+    max-width: 100%
+    display: block
+  & .fa
+    position: absolute
+    top: 4px
+
+.article-category-list,
+.article-tag-list
+  padding-left: 15px
+
+.article-tag-list-item
+  margin-bottom: 0
+
+.article-tag-list-count,
+.article-category-count,
+.category-list-count
+  padding-left: 2px
+  color: color-grey
+  &:before
+    content: "("
+  &:after
+    content: ")"
+
+.article-tag-list-link,
+.article-category-link
+  &:hover
+    text-decoration: none
+    color: color-link-lighten
+
+.article-category-link
+  display: inline-block
+  padding: 0 5px
+
+.article-tag-list
+  list-style: none
+  margin: 0
+  li
+    display: inline-block
+    padding: 0 5px
+
+.fancybox-lock .fancybox-overlay
+  overflow: hidden !important
+
+a.no-title
+  float: left
+  padding-right: 3px
+  &:hover
+    color: color-link-lighten
+
+a.post-external-link
+  font-size: 1.5rem
+  &:hover
+    color: color-link-lighten

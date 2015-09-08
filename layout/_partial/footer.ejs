@@ -1,0 +1,30 @@
+<footer id="footer" class="u-cf">
+  <% if (page.total > 1){ %>
+    <nav id="page-nav">
+      <%- paginator({
+        prev_text: '&laquo; '+__("nav.page.prev"),
+        next_text:  __("nav.page.next") + ' &raquo;'
+      }) %>
+    </nav>
+  <% } %>
+  <% if (page.date) { %>
+    <nav id="page-nav">
+    <% if (page.prev) { %>
+      <a href="<%- url_for(page.prev.path) %>">&laquo; <%= __("nav.post.prev") %></a>
+      <span class="nav-title" title="<%= page.prev.title || __('no_title') %>"><%= page.prev.title || __('no_title') %></span>
+    <% } %>
+    <% if (page.prev && page.next) { %>
+      <br />
+    <% } %>
+    <% if (page.next) { %>
+      <span class="nav-title" title="<%= page.next.title || __('no_title') %>"><%= page.next.title || __('no_title') %></span>
+      <a href="<%- url_for(page.next.path) %>"><%= __("nav.post.next") %> &raquo;</a>
+    <% } %>
+    </nav>
+  <% } %>
+
+  <div id="footer-info" class="inner">
+    <div>&copy; <%= date(new Date(), 'YYYY') %> <%= config.author || config.title %></div>
+    <div><%- __('footer.powered', '<a href="http://hexo.io">Hexo</a>') %> | <%- __('footer.bg') %><a href="https://abs.twimg.com/images/themes/theme1/bg.png">Twitter Cloud</a></div>
+  </div>
+</footer>

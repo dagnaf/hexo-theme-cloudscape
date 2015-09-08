@@ -1,0 +1,26 @@
+<%
+var root = {};
++function prepareQuery(parent_query, parent_data){
+  var query = { parent: parent_query  || { $exists: false } };
+  site.categories
+    .find(query)
+    .filter(function(cat){ return cat.length; })
+    .forEach(function (cat) {
+      parent_data.children || (parent_data.children = []);
+      parent_data.children.push({
+        name: cat.name,
+        length: cat.length,
+        path: (parent_data.path || "") + cat.name + "/"
+      });
+      prepareQuery(cat._id, _.last(parent_data.children));
+    });
+}(null, root);
+%>
+<script type="text/javascript">
+var root = <%- JSON.stringify(root) %>;
+circlePacking()
+  .container("#svg-container")
+  .padding(15)
+  .highlight("hl-cat")
+  .pack(root);
+</script>

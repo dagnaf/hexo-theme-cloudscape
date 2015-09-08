@@ -1,0 +1,24 @@
+<header class="page-header u-full-width u-cf">
+  <h3 class="header-title u-pull-left">
+    <a class="header-link" href="<%- url_for() %>"><%= config.title %></a>
+  </h3>
+  <nav class="header-nav u-pull-right">
+    <ul class="header-nav-list">
+      <% for (var menu_name in theme.menu) {
+        // menu_name/{{[submenu/]}*[page/2/]}index.html
+        var path = page.path
+            .replace(/(\/index\.html)$/, '')
+            .replace(/(\/page\/\d+)$/, '');
+        var selected = _.startsWith(page.path, menu_name + '/');
+        var attributed = selected && !_.endsWith(path, menu_name);
+        var class_name = selected ? 'selected' : '';
+        var attr_data = '';
+        if (attributed) { // has submenu like 2015/08 ...
+          attr_data = _.last(url_for(page.path).split(menu_name)).slice(1).replace(/(\/(page\/[0-9]+\/){0,1}index.html)$/g,'');
+          class_name += ' submenu';
+        } %>
+        <li class="header-nav-list-item <%= class_name %>"><a class="header-link" href="<%- url_for(menu_name) %>" data-submenu="<%= attr_data %>"><%= (__('header.'+menu_name) || menu_name) %></a></li>
+      <% } %>
+    </ul>
+  </nav>
+</header>

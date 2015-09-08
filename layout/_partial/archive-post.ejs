@@ -1,0 +1,18 @@
+<article class="archive-article archive-type-<%= post.layout %>">
+  <div class="archive-article-inner">
+      <a class="archive-date" href="<%- url_for('archives/' + date(post.date, 'YYYY/MM') ) %>">
+        <h4 class="archive-date-large"><%- date(post.date, 'DD')%></h4>
+        <div class="archive-date-small"><%- date(post.date, 'MMMM').substr(0, __('date_month')) %></div>
+      </a>
+      <div class="archive-article-abstract">
+        <%- partial('post/title', {class_name: 'archive-article-title'}) %>
+        <% if (post.abstract) { %>
+          <%= post.abstract %>
+        <% } %>
+        <div>
+          <%- partial('post/category') %>
+          <%- partial('post/tag') %>
+        </div>
+      </div>
+  </div>
+</article>

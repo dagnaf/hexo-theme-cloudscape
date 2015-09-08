@@ -1,0 +1,10 @@
+<% if (page.type === 'tags' || page.type === 'categories') { %>
+  <div id="svg-container"></div>
+  <!-- <script type="text/javascript" src="js/lib/d3.js" charset="utf-8"></script> -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+  <%- css('css/cp') %>
+  <%- js('js/cp') %>
+  <%- partial('_partial/page/'+page.type) %>
+<% } else { %>
+  <%- partial('_partial/article', {post: page, index: false}) %>
+<% } %>

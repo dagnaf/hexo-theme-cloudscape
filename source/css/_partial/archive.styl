@@ -1,0 +1,39 @@
+.archive-year-wrap
+  @extend $mq-padding
+  h2
+    // border-bottom: 1px solid color-border
+    text-align: center
+    @media mq-mobile
+      text-align: left
+    a:hover
+      color: color-link-lighten
+      text-decoration: none
+
+article.archive-article
+  position: relative
+  @extend $mq-padding
+  header h1
+    margin-bottom: 5px
+
+a.archive-date
+  color: color-default
+  display: block
+  text-align: center
+  position: absolute
+  &:hover
+    color: color-link-lighten
+    text-decoration: none
+  .archive-date-large
+    margin-bottom: -6px
+
+div.archive-article-abstract
+  padding-left: 40px
+  margin-bottom: 1.5rem
+  h1
+    margin-bottom: 0
+
+a.archive-article-title
+  color: color-default
+  &:hover
+    color: color-link-lighten
+    text-decoration: none
