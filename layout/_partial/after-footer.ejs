@@ -12,11 +12,7 @@
 
 <script>
   var disqus_shortname = '<%= theme.disqus_shortname %>';
-  <% if (page.permalink){ %>
-  var disqus_url = '<%= page.permalink %>';
-  <% } else { %>
-    var disqus_url = "<%- url_for() %>";
-  <% } %>
+  var disqus_url = '<%= config.url+url_for(page.path.replace(/(index\.html)$/,'')) %>';
 
   (function(){
     var dsq = document.createElement('script');

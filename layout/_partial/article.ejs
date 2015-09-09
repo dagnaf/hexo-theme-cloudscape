@@ -39,7 +39,7 @@
     </div>
   <% } else if (theme.duoshuo_shortname) { %>
   <!-- 多说评论框 start -->
-    <div class="ds-thread" data-thread-key="<%= post.path %>" data-title="<%= post.title %>" data-url="<%= post.permalink %>"></div>
+    <div class="ds-thread" data-thread-key="<%= post.path %>" data-title="<%= post.title %>" data-url="<%= config.url+url_for(page.path.replace(/(index\.html)$/,'')) %>"></div>
   <!-- 多说评论框 end -->
   <% } %>
 </section>
