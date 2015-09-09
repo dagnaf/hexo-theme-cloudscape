@@ -761,6 +761,7 @@ body {
 .header-nav-list li.selected.submenu a:after {
   content: attr(data-submenu);
   background-color: #8ec1da;
+  color: #cae4f0;
   -webkit-border-radius: 7px;
   border-radius: 7px;
   padding: 0 4px;
@@ -768,7 +769,7 @@ body {
   margin-right: -1px;
 }
 .header-nav-list li.selected.submenu a:hover:after {
-  color: #258fb8;
+  color: #cae4f0;
 }
 .header-link:hover {
   text-decoration: none;
